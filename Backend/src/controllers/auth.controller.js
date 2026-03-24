@@ -20,8 +20,8 @@ function isStrongPassword(password) {
 function getAuthCookieOptions() {
   return {
     httpOnly: true,
-    sameSite: 'lax',
-    secure: env.nodeEnv === 'production',
+    sameSite: 'none',   
+    secure: true,       
     path: '/',
   };
 }
