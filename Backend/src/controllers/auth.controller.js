@@ -18,10 +18,12 @@ function isStrongPassword(password) {
 }
 
 function getAuthCookieOptions() {
+  const isProd = env.nodeEnv === 'production';
+
   return {
     httpOnly: true,
-    sameSite: 'none',   
-    secure: true,       
+    sameSite: isProd ? 'none' : 'lax',
+    secure: isProd,
     path: '/',
   };
 }
